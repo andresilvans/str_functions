@@ -1,0 +1,37 @@
+strcpy：
+      strcpy是一种C语言的标准库函数
+      strcpy把从src地址开始且含有'\0'结束符的字符串复制到以dest开始的地址空间
+      返回值的类型为char*。
+
+// 思路：将src字符串复制到dst上，由于dst参数是被修改的，所以他必须是一个字符数组或者是一个指向动态分配内存的数组的指针
+//       不能使用字符串常量。新的字符串意\结尾，所以老字符串剩余的几个字符将会被有效地删除
+
+#include<stdio.h>
+#include<assert.h>
+char* my_strcpy(char* dest,const char* src)
+{
+	// 先断言一把
+	assert(NULL != dest);
+	assert(src);
+
+	char* ret = dest;   //先让ret保存dest的起始位置
+
+	//将src中的值一次拷贝到dst之中
+	//先进行了复制再进行了++，当赋值到终结符‘\0’时，不符合while的判断条件，退出循环
+	//而此时已经将所有的内容复复制到字符数组中了
+	while (*dest++ = *src++)
+	{
+		;
+	}
+	return ret;
+}
+
+int main()
+{
+	char str1[] = "hhhhhhhhhhhhhhhhhhhhhhhhh";  // 这里dest也就是str1必须给够空间
+	char* str2 = "hello world";
+	printf("%s\n", my_strcpy(str1, str2));
+	getchar();
+	return 0;
+}
+*/
