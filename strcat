@@ -1,0 +1,31 @@
+// 模拟实现strcat：字符串追加
+//思想：找到目的字符串的末尾将源字符串的一份拷贝添加到这个位置。
+#include<stdio.h>
+#include<assert.h>
+char* my_strcat(char* dest, const char* src)
+{
+	// 断言一把
+	assert(dest);
+	assert(src);
+
+	char* ret = dest;   //先让ret保存dst的起始位置
+	// 先找到目的串的末尾
+	while (*dest)
+	{
+		*dest++;
+	}
+	// 追加
+	while (*dest++ = *src++)
+	{
+		;
+	}
+	return ret;
+}
+int main()
+{
+	char str1[12] = "hello";
+	const char* str2 = "world";
+	printf("%s\n", my_strcat(str1, str2));
+	getchar();
+	return 0;
+}
