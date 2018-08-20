@@ -1,0 +1,29 @@
+//char *strncpy(char *dest, const char *src, int n)
+//把src所指向的字符串中以src地址开始的前n个字节复制到dest所指的数组中，并返回被复制后的dest。
+//strncpy是将一个字符串的n个字符复制到另一个字符串中，模拟实现strncpy是要注意到字符串的"\0"，
+//因为是复制n个字符所以并不知道是否将"\0"复制到目标字符串中，
+//所以要在程序中加上给目标字符串附上"\0"
+char* my_strncpy(char* dest, const char*src, int n)
+{
+	assert(dest);
+	assert(src);
+	char* ret = dest;
+
+	while (n--)
+	{
+		*dest++ = *src++;
+	}
+	if (*(dest - 1) != '\0')//判断是否已经将‘\0’复制到目标字符串中
+		*dest = '\0';      //若没有则给目标字符串最后添加‘\0’ 
+	return ret;
+
+}
+int main()
+{
+	char str1[10];
+	char* str2 = "hello";
+	printf("%s\n", my_strncpy(str1, str2, 5));
+	getchar();
+	return 0;
+}
+*/
