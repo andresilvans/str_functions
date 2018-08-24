@@ -1,0 +1,32 @@
+// 模拟实现strcmp：字符串比较
+//思想：比较两个字符串就是对两个字符串的字符逐个进行比较，知道发现不匹配位置。
+//由于strcmp不改变任何一个参数，所以不存在溢出字符数组的缺点
+//但是strcmp的参数必须要有结束标志符结尾，否则strcmp就有可能对参数后面的内容进行比较，这样得出来的结果没什么意义。
+
+//str1>str2,返回1
+//str1=str2,返回0
+//str1<str2,返回-1
+int my_strcmp(char* dest,char* src)
+{
+
+	int ret = 0;
+	while (!(ret = *(unsigned char*)dest - *(unsigned char*)src) && dest)
+	{
+		++dest;
+		++src;
+	}
+	if (ret > 0)
+		return 1;
+	else if (ret < 0)
+		return -1;
+	return ret;
+}
+
+int main()
+{
+	char str1[] = "world";
+	char str2[] = "world";
+	printf("%d", my_strcmp(str1, str2));
+	getchar();
+	return 0;
+}
