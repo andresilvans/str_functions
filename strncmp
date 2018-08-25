@@ -1,0 +1,31 @@
+// 模拟实现strncmp
+int my_strncmp(const char* str1, const char* str2, int n)
+{
+	assert(str1);
+	assert(str2);
+	while (n--)
+	{
+		if (*str1 == *str2)
+		{
+			str1++;
+			str2++;
+		}
+		else
+		{
+			if ((*str1 - *str2) < 0)
+				return -1;
+			else
+				return 1;
+		}
+	}
+	return 0;
+}
+
+int main()
+{
+	char str1[] = "world";
+	char str2[] = "world";
+	printf("%d", my_strncmp(str1, str2,2));
+	getchar();
+	return 0;
+}
