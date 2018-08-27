@@ -1,0 +1,15 @@
+// 模拟实现memcpy
+//memcpy函数的功能是从源src所指的内存地址的起始位置开始拷贝n个字节到目标dest所指的内存地址的起始位置中。
+void* my_memcpy(void* dest, void* src, size_t n)
+{
+	void* ret = dest;
+	char* str1 = (char*)dest;
+	char* str2 = (char*)src;
+	assert(dest);
+	assert(src);
+	while (n--)
+	{
+		*str1++ = *str2++;
+	}
+	return ret;
+}
